@@ -71,7 +71,7 @@ public class CoolWeatherDB {
 			do{
 				City city =new City();
 				city.setId(cursor.getInt(cursor.getColumnIndex("id")));
-				city.setCityName(cursor.getString(cursor.getColumnIndex("city_code")));
+				city.setCityName(cursor.getString(cursor.getColumnIndex("city_name")));
 				city.setCityCode(cursor.getString(cursor.getColumnIndex("city_code")));
 				city.setProvinceId(provinceId);
 				list.add(city);
@@ -98,9 +98,10 @@ public class CoolWeatherDB {
 			do {
 				County county=new County();
 				county.setId(cursor.getInt(cursor.getColumnIndex("id")));
-				county.setCountyCode(cursor.getString(cursor.getColumnIndex("county_code")));
+				county.setCountyName(cursor.getString(cursor.getColumnIndex("county_name")));
 				county.setCityId(cityId);
 				county.setCountyCode(cursor.getString(cursor.getColumnIndex("county_code")));
+				list.add(county);
 			} while (cursor.moveToNext());
 		}
 		return list;
